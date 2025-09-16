@@ -45,8 +45,9 @@ namespace Calculator
                     case "x^2":
                         currentValue = Math.Pow(currentValue, 2);
                         break;
+                    
                     case "sqrt":
-                        currentValue = Math.Sqrt(currentValue);
+                        currentValue = PerformSquareRoot(currentValue);
                         break;
                     case "M+":
                         memory += currentValue;
@@ -119,6 +120,15 @@ namespace Calculator
             }
         }
 
+        static double PerformSquareRoot(double current)
+        {
+            if (current < 0)
+            {    
+        Console.WriteLine("Ошибка: невозможно извлечь корень из отрицательного числа");
+        return current;
+            }
+        return Math.Sqrt(current);
+            }
         static double PerformModulo(double current)
         {
             Console.Write("Введите число для операции %: ");
